@@ -1,30 +1,30 @@
 <template>
   <div id="app">
-    <h1>Welcome to Opportunity</h1>
-    <h2>Datum-Placeholder</h2>
+    <h1>{{ title }}</h1>
+    <h2>{{currentDate()}}</h2>
 
     <ul>
-      <li style="color:red"><b>Uhrzeit</b></li>
-      <li style="color:coral"><b>Basisbeschäftigung Besuch</b></li>
-      <li style="color:coral">Interessierte für den zweiten Kurs werden uns besuchen</li>
+      <li style="color:red"><b>{{daytime1}}</b></li>
+      <li style="color:coral"><b>{{description1}}</b></li>
+      <li style="color:coral">{{task1}}</li>
     </ul>
 
     <ul>
-      <li style="color:red"><b>Uhrzeit</b></li>
-       <li style="color:coral"><b>Basisbeschäftigung Besuch</b></li>
-      <li style="color:coral">Interessierte für den zweiten Kurs werden uns besuchen</li>
+      <li style="color:red"><b>{{daytime2}}</b></li>
+       <li style="color:coral"><b>{{description2}}</b></li>
+      <li style="color:coral">{{task2}}</li>
     </ul>
 
     <ul>
-      <li style="color:red"><b>Uhrzeit</b></li>
-       <li style="color:coral"><b>Basisbeschäftigung Besuch</b></li>
-      <li style="color:coral">Interessierte für den zweiten Kurs werden uns besuchen</li>
+      <li style="color:red"><b>{{daytime3}}</b></li>
+       <li style="color:coral"><b>{{description3}}</b></li>
+      <li style="color:coral">{{task3}}</li>
     </ul>
 
     <footer>
-      <img
+      <img 
         src="./assets/logo-zh.png"
-        width = 230px;
+        width = 230px:
         
       >  
       <img 
@@ -47,8 +47,29 @@
 
 export default {
   name: 'App',
+  data() {
+    return {
+      title: "Welcome to Opportunity",
+      description1: "Basisbeschäftigung Besuch",
+      description2: "Gruppenarbeit",
+      description3: "Abschluss",
+      daytime1: "08.30" + " Uhr",
+      daytime2: "13.30" + " Uhr",
+      daytime3: "16.30" + " Uhr",
+      task1: "Interessierte für den zweiten Kurs werden uns besuchen",
+      task2: "Workshop",
+      task3: "Wrap-Up",
+    }
+  },
+  methods: {
+    currentDate() {
+      const current = new Date();
+      const date = `${current.getDate()}.${current.getMonth()+1}.${current.getFullYear()}`;
+      return date;
+    }
+  }
+};
   
-}
 </script>
 
 <style>
