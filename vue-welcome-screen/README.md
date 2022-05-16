@@ -1,4 +1,4 @@
-# vueproject
+# vue-welcome-screen
 
 ## Project setup
 ```
