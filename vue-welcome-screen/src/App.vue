@@ -104,12 +104,20 @@ export default {
       this.entries = response.data.valueRanges[0].values;
         });
     },
-  },
-    mounted() {
+    refreshData() {
+      this.currentDate();
       this.getData();
-    },
+    }
+  },
   
-};
+  mounted() {
+    this.refreshData();
+      setInterval(
+        this.refreshData,
+      1800000);
+      },
+    }
+  
   
 </script>
 
