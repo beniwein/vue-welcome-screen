@@ -22,42 +22,18 @@
 
       <h1 v-else>No Items available</h1>
       
-   
-    <!-- TESTDATEN (Zeile 70-78) nicht mehr vorhanden:
-    <ul>
-      <li style="color:red"><b>{{daytime1}}</b></li>
-      <li style="color:coral"><b>{{description1}}</b></li>
-      <li style="color:coral">{{task1}}</li>
-    </ul>
-
-    <ul>
-      <li style="color:red"><b>{{daytime2}}</b></li>
-       <li style="color:coral"><b>{{description2}}</b></li>
-      <li style="color:coral">{{task2}}</li>
-    </ul>
-
-    <ul>
-      <li style="color:red"><b>{{daytime3}}</b></li>
-       <li style="color:coral"><b>{{description3}}</b></li>
-      <li style="color:coral">{{task3}}</li>
-    </ul>
-    -->
-
     <footer>
       <img 
         src="./assets/logo-zh.png"
         width = 230px:
-        
       >  
       <img 
         src="./assets/logo-opportunity.png"
         width = 296px;
-                      
       >  
       <img
         src="./assets/logo-sag.png"
         width = 273px;
-              
       >  
     </footer>
     
@@ -75,15 +51,6 @@ export default {
       sheet_id: "1a81aI0Y8ViZO0tI92h2YSMqVQJ8hmNNMyMylXgvwiU4",
       api_token: "AIzaSyA-qeDXOhEeQDA0vQf7LgkF7DQtGnAtmAU",
       entries: [],
-/*    description1: "Basisbeschäftigung Besuch",                            TESTDATEN
-      description2: "Gruppenarbeit",
-      description3: "Abschluss",
-      daytime1: "08.30" + " Uhr",
-      daytime2: "13.30" + " Uhr",
-      daytime3: "16.30" + " Uhr",
-      task1: "Interessierte für den zweiten Kurs werden uns besuchen",
-      task2: "Workshop",
-      task3: "Wrap-Up",                                    */
     }
   },
   computed: {
@@ -91,25 +58,22 @@ export default {
       return `https://sheets.googleapis.com/v4/spreadsheets/${this.sheet_id}/values:batchGet?ranges=A2%3AE100&valueRenderOption=FORMATTED_VALUE&key=${this.api_token}`;
     },
   },
-  
   methods: {
     currentDate() {
       const current = new Date();
       const date = `${current.getDate()}.${current.getMonth()+1}.${current.getFullYear()}`;
       return date;
       },
-
     getData() {
       axios.get(this.gsheet_url).then((response) => {
       this.entries = response.data.valueRanges[0].values;
-        });
+      });
     },
     refreshData() {
       this.currentDate();
       this.getData();
     }
-  },
-  
+  },  
   mounted() {
     this.refreshData();
       setInterval(
@@ -117,8 +81,7 @@ export default {
       1800000);
       },
     }
-  
-  
+    
 </script>
 
 <style>
@@ -156,7 +119,6 @@ h3, span, li {
    padding-top: 10px;
    padding-left: 40px;
 }
-
 footer {
   background: white;
   position: fixed;
@@ -169,7 +131,6 @@ img {
   margin-bottom: 43px;
   margin-left: 40px;
   margin-right: 50px;
-    
 }
 
 </style>
