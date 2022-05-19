@@ -1,5 +1,7 @@
 # vue-welcome-screen
 
+task: create a welcome-screen in resolution 1080 x 1920 px (current date / titles & descriptions out of an API - gsheet_url)
+
 ## Project setup
 ```
 npm install
