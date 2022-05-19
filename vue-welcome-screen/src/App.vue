@@ -95,7 +95,7 @@ export default {
 }
 h1 {
   font-family: 'Inter';
-  font-size: 62px;
+  font-size: 60px;
   margin-left: 60px;
 }
 h2 {
